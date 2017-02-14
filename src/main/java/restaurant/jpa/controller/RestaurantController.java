@@ -18,7 +18,7 @@ public class RestaurantController {
 	@ResponseBody
 	@Transactional(readOnly = true)
 	public String getDrinkName() {
-		return this.drinkService.getDrink("Sok").getName();
+		return this.drinkService.getDrink("Pivo").getName();
 	}
 	
 }

@@ -1,5 +1,37 @@
 package restaurant.jpa.domain;
 
-public class SystemManager extends User {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+
+@Entity
+public class SystemManager {
+
+	@Id
+	@GeneratedValue
+	private long id;
+
+	@Column(nullable = false)
+	private String password;
+	
+	public SystemManager() {
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }
