@@ -1,7 +1,5 @@
 package restaurant.jpa.domain;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,26 +7,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "menu")
-public class Menu {
-	
+@Table(name = "demand_item")
+public class DemandItem {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
-	@OneToMany
-	@Column(name = "menu_item_id", nullable = false)
-	private Set<MenuItem> menuItem;
-	
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "restaurant_id", nullable = false)
-	private Restaurant restaurant;
 
-	public Menu() {
+	@ManyToOne
+	@JoinColumn(name = "ingredient_id", nullable = false)
+	private Ingredient ingredient;
+
+	@Column(name = "count")
+	private int count;
+
+	public DemandItem() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -41,6 +37,20 @@ public class Menu {
 		this.id = id;
 	}
 
-	
-	
+	public Ingredient getIngredient() {
+		return ingredient;
+	}
+
+	public void setIngredient(Ingredient ingredient) {
+		this.ingredient = ingredient;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
 }

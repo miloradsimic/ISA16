@@ -12,13 +12,14 @@ import restaurant.jpa.domain.enums.FoodType;
 @Table(name = "tbl_food")
 public class Food extends MenuItem {
 
+    @Enumerated(EnumType.ORDINAL)
 	@Column(name = "food_type", nullable = false)
 	private FoodType foodType;
 
 	public Food() {
 	}
 	
-    @Enumerated(EnumType.ORDINAL)
+
 	public FoodType getFoodType() {
 		return foodType;
 	}

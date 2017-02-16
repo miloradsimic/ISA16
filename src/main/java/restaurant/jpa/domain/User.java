@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.ManyToOne;
 
 @Entity
 // koncept jedna tabela po konkretnoj klasi
@@ -15,7 +16,7 @@ import javax.persistence.Inheritance;
 public abstract class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.TABLE) //TODO: obrati paznju na ovo, istrazi kad je auto kad table
 	private long id;
 
 	@Column(nullable = false)
@@ -23,8 +24,13 @@ public abstract class User {
 
 	@Column(nullable = false)
 	private String password;
+
+	@Column(nullable = false)
+	private String name;
 	
-	public User(){
+
+
+	public User() {
 	}
 
 	public long getId() {
@@ -50,7 +56,13 @@ public abstract class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 }

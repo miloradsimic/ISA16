@@ -13,25 +13,34 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "menu")
-public class Menu {
-	
+@Table(name = "offer")
+public class Offer {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
-	
+
 	@OneToMany
-	@Column(name = "menu_item_id", nullable = false)
-	private Set<MenuItem> menuItem;
+	@Column(name = "offer_item_id", nullable = false)
+	private Set<OfferItem> offerItems;
 	
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "restaurant_id", nullable = false)
 	private Restaurant restaurant;
 
-	public Menu() {
-		super();
-		// TODO Auto-generated constructor stub
+	public Offer() {
 	}
+	
+
+	public Set<OfferItem> getOfferItems() {
+		return offerItems;
+	}
+
+
+	public void setOfferItems(Set<OfferItem> offerItems) {
+		this.offerItems = offerItems;
+	}
+
 
 	public long getId() {
 		return id;
@@ -41,6 +50,14 @@ public class Menu {
 		this.id = id;
 	}
 
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+
 	
-	
+
 }

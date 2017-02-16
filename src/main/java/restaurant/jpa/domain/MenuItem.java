@@ -2,12 +2,15 @@ package restaurant.jpa.domain;
 
 import static javax.persistence.InheritanceType.TABLE_PER_CLASS;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.OneToMany;
 
 @Entity
 // koncept jedna tabela po konkretnoj klasi
@@ -23,6 +26,10 @@ public abstract class MenuItem {
 
 	@Column(name = "price", nullable = false)
 	private Double price;
+	
+	@OneToMany
+	@Column(name = "rating_id")
+	private Set<Rating> ratings;
 
 	public MenuItem() {
 	}
@@ -50,5 +57,14 @@ public abstract class MenuItem {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+
+	public Set<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(Set<Rating> ratings) {
+		this.ratings = ratings;
+	}
+	
 
 }
