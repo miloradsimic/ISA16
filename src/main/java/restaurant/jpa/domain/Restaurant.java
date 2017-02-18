@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.swing.text.Position;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
@@ -19,7 +20,7 @@ public class Restaurant {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
-	private long restaurant_id;
+	private long id;
 
 	@Max(value = 24, message = "Hour is out of range!")
 	@Min(value = 0, message = "Hour is out of range!")
@@ -37,8 +38,17 @@ public class Restaurant {
 	@Column(name = "rating_id")
 	private Set<Rating> ratings;
 	
+
 	@OneToMany
+	@Column(name = "menu_item_id")
+	private Set<MenuItem> menu;
+	
+	@OneToMany //TODO: Popravi ovu vezu, treba biti ManyToMany
 	@Column(name = "ingredient_id")
 	private Set<Ingredient> ingredients;
+	
+	
+	
+	
 	
 }

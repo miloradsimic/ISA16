@@ -20,7 +20,7 @@ import restaurant.jpa.domain.enums.OrderStatus;
 public abstract class OrderItem {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
 
 	@ManyToOne(optional = false)
@@ -40,8 +40,8 @@ public abstract class OrderItem {
 	private MenuItem ordered_item;
 
 	@ManyToOne(optional = false)
-	@JoinColumn(name = "table_id", nullable = false)
-	private restaurant.jpa.domain.Table table;
+	@JoinColumn(name = "restaurant_table_id", nullable = false)
+	private RestaurantTable restaurantTable;
 
 	@Column(name = "ready_time", nullable = false)
 	private Date ready_time;

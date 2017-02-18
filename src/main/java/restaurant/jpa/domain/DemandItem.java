@@ -1,5 +1,7 @@
 package restaurant.jpa.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,12 +16,20 @@ import javax.persistence.Table;
 public class DemandItem {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
 
 	@ManyToOne
 	@JoinColumn(name = "ingredient_id", nullable = false)
 	private Ingredient ingredient;
+	
+
+	@Column(name = "demand_end", nullable = false)
+	private Date demandEnd;
+
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "restaurant_id", nullable = false)
+	private Restaurant restaurant;
 
 	@Column(name = "count")
 	private int count;

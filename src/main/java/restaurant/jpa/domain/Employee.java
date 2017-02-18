@@ -10,6 +10,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 @Entity
 // koncept jedna tabela po konkretnoj klasi
@@ -22,12 +24,11 @@ public abstract class Employee extends User {
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "shift_id", nullable = false)
 	private Shift shift;
-	
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "restaurant_id", nullable = false)
 	private Restaurant restaurant;
-	
+
 	@OneToMany
 	@Column(name = "rating_id")
 	private Set<Rating> ratings;
@@ -58,7 +59,5 @@ public abstract class Employee extends User {
 	public void setRatings(Set<Rating> ratings) {
 		this.ratings = ratings;
 	}
-
-	
 
 }

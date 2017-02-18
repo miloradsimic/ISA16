@@ -45,8 +45,8 @@ public class Reservation {
 	private Set<Guest> friends;
 
 	@ManyToOne(optional = false)
-	@JoinColumn(name = "table", nullable = false)
-	private restaurant.jpa.domain.Table table;
+	@JoinColumn(name = "restaurant_table_id", nullable = false)
+	private RestaurantTable restaurantTable;
 
 	/**
 	 * List of menu items with guest who ordered.

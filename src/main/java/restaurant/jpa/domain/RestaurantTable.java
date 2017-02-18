@@ -1,22 +1,26 @@
 package restaurant.jpa.domain;
 
-import java.awt.Point;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Null;
 
-import restaurant.jpa.domain.enums.TableStatusType;
+import restaurant.jpa.domain.enums.TableStatus;
 
 @Entity
-@javax.persistence.Table(name = "table")
-public class Table {
+@Table(name = "restaurant_table")
+public class RestaurantTable {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
 
 	@Column(name = "number", nullable = false)
@@ -26,14 +30,15 @@ public class Table {
 	@JoinColumn(name = "reon_id", nullable = false)
 	private Reon reon;
 	
-	@Column(name = "position", nullable = false)
-	private Point possition;
+
+	@OneToOne(fetch = FetchType.LAZY)
+	private TablePosition position;
 	
 	@Column(name = "status", nullable = false)
-	private TableStatusType status;
-	
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "waiter_id", nullable = false)
+	private TableStatus status;
+
+	@ManyToOne(optional = true)
+	@JoinColumn(name = "waiter_id", nullable = true)
 	private Waiter waiter;
 	
 	@Column(name = "max_seats", nullable = false)
@@ -46,7 +51,7 @@ public class Table {
 	
 	
 
-	public Table() {
+	public RestaurantTable() {
 	}
 
 	public long getId() {

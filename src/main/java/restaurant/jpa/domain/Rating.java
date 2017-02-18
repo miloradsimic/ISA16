@@ -1,5 +1,7 @@
 package restaurant.jpa.domain;
 
+import static javax.persistence.InheritanceType.TABLE_PER_CLASS;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,6 +11,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -16,8 +19,9 @@ import javax.persistence.Table;
 import restaurant.jpa.domain.enums.Rate;
 
 @Entity
-@Table(name = "rating")
-public class Rating {
+// koncept jedna tabela po konkretnoj klasi
+@Inheritance(strategy = TABLE_PER_CLASS)
+public abstract class Rating {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)

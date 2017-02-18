@@ -23,7 +23,7 @@ import restaurant.jpa.domain.enums.StockLevel;
 public class Ingredient {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
 
 	@Column(name = "name", nullable = false)

@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Supplier extends User {
     
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
     private String name;
 

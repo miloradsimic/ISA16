@@ -3,6 +3,7 @@ package restaurant.jpa.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,8 +12,9 @@ import javax.persistence.Table;
 @Table(name = "system_manager")
 public class SystemManager {
 
+	//TODO: Mislim da ne treba ID zato sto postoji samo jedan system manager u ovom informacionom sistemu
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
 
 	@Column(nullable = false)

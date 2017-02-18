@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 public abstract class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE) //TODO: obrati paznju na ovo, istrazi kad je auto kad table
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
 
 	@Column(nullable = false)

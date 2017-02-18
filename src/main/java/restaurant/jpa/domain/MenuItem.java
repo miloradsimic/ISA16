@@ -2,6 +2,7 @@ package restaurant.jpa.domain;
 
 import static javax.persistence.InheritanceType.TABLE_PER_CLASS;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -10,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -29,8 +32,14 @@ public abstract class MenuItem {
 	
 	@OneToMany
 	@Column(name = "rating_id")
-	private Set<Rating> ratings;
+	private Set<Rating> ratings = new HashSet<>();
+	
 
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "restaurant_id", nullable = false)
+	private Restaurant restaurant;
+
+	
 	public MenuItem() {
 	}
 

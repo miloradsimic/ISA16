@@ -18,7 +18,7 @@ import restaurant.jpa.domain.enums.OfferStatus;
 public class OfferItem {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
 
 	@ManyToOne
@@ -34,8 +34,14 @@ public class OfferItem {
 	@Enumerated(value = EnumType.ORDINAL)
 	@Column(name = "offer_status", nullable = false)
 	private OfferStatus offerStatus;
-
 	
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "restaurant_id", nullable = false)
+	private Restaurant restaurant;
+	
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "supplier_id", nullable = false)
+	private Supplier supplier;	
 	
 	public OfferStatus getOfferStatus() {
 		return offerStatus;
