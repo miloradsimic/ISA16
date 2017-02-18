@@ -38,8 +38,8 @@ public class Bill {
 	private Date creationDate;
 
 	@OneToMany
-	//@JoinColumn(name = "menu_item_id", nullable = false)
-	private Set<MenuItem>  menuItems = new HashSet<>();
+	// @JoinColumn(name = "menu_item_id", nullable = false)
+	private Set<MenuItem> menuItems = new HashSet<>();
 
 	// TODO: This anotation could be removed, because this data could be
 	// calculated
@@ -47,6 +47,38 @@ public class Bill {
 	private double total;
 
 	public Bill() {
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+
+	public Waiter getWaiter() {
+		return waiter;
+	}
+
+	public void setWaiter(Waiter waiter) {
+		this.waiter = waiter;
+	}
+
+	public RestaurantTable getRestaurantTable() {
+		return restaurantTable;
+	}
+
+	public void setRestaurantTable(RestaurantTable restaurantTable) {
+		this.restaurantTable = restaurantTable;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
 	}
 
 	public long getId() {

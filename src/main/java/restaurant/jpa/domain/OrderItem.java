@@ -26,7 +26,7 @@ public abstract class OrderItem {
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "restaurant_id", nullable = false)
 	private Restaurant restaurant;
-	
+
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "guest_id", nullable = false)
 	private Guest guest;
@@ -51,7 +51,22 @@ public abstract class OrderItem {
 	private OrderStatus orderStatus;
 
 	public OrderItem() {
-		super();
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+
+	public RestaurantTable getRestaurantTable() {
+		return restaurantTable;
+	}
+
+	public void setRestaurantTable(RestaurantTable restaurantTable) {
+		this.restaurantTable = restaurantTable;
 	}
 
 	public long getId() {
@@ -85,7 +100,7 @@ public abstract class OrderItem {
 	public void setOrdered_item(MenuItem ordered_item) {
 		this.ordered_item = ordered_item;
 	}
-	
+
 	public Date getReady_time() {
 		return ready_time;
 	}
@@ -101,7 +116,5 @@ public abstract class OrderItem {
 	public void setOrderStatus(OrderStatus orderStatus) {
 		this.orderStatus = orderStatus;
 	}
-	
-	
 
 }

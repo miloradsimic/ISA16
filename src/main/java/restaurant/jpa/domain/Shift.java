@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 
 @Entity
 @Table(name = "shift")
@@ -21,19 +19,58 @@ public class Shift {
 
 	@Column(name = "name", nullable = false)
 	private String name;
-	
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "restaurant_id", nullable = false)
 	private Restaurant restaurant;
-	
-
 
 	@Column(name = "begin_hour", nullable = false)
 	private int beginHour;
-	
+
 	@Column(name = "end_hour", nullable = false)
 	private int endHour;
 
-	
+	public Shift() {
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+
+	public int getBeginHour() {
+		return beginHour;
+	}
+
+	public void setBeginHour(int beginHour) {
+		this.beginHour = beginHour;
+	}
+
+	public int getEndHour() {
+		return endHour;
+	}
+
+	public void setEndHour(int endHour) {
+		this.endHour = endHour;
+	}
+
 }

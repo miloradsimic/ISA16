@@ -9,9 +9,19 @@ import javax.persistence.Table;
 @Table(name = "restaurant_manager")
 public class RestaurantManager extends User {
 
-	
-
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "restaurant_id", nullable = false)
 	private Restaurant restaurant;
+
+	public RestaurantManager() {
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+
 }

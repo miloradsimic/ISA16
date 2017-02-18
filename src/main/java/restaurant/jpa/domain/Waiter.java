@@ -7,5 +7,8 @@ import javax.persistence.Table;
 @Table(name = "waiter")
 public class Waiter extends Employee {
 
+	public Waiter() {
+	}
+
 	
 }

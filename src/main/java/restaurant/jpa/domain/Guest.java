@@ -21,8 +21,6 @@ public class Guest extends User {
 	private List<User> friendOf;
 
 	public Guest() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public List<User> getFriends() {

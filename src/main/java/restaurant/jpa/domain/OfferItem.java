@@ -30,30 +30,44 @@ public class OfferItem {
 
 	@Column(name = "price_per_unit", nullable = false)
 	private double pricePerUnit;
-	
+
 	@Enumerated(value = EnumType.ORDINAL)
 	@Column(name = "offer_status", nullable = false)
 	private OfferStatus offerStatus;
-	
+
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "restaurant_id", nullable = false)
 	private Restaurant restaurant;
-	
+
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "supplier_id", nullable = false)
-	private Supplier supplier;	
-	
+	private Supplier supplier;
+
+	public OfferItem() {
+	}
+
 	public OfferStatus getOfferStatus() {
 		return offerStatus;
 	}
 
-	public void setOfferStatus(OfferStatus offerStatus) {
-		this.offerStatus = offerStatus;
+	public Restaurant getRestaurant() {
+		return restaurant;
 	}
 
-	public OfferItem() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+
+	public void setOfferStatus(OfferStatus offerStatus) {
+		this.offerStatus = offerStatus;
 	}
 
 	public long getId() {

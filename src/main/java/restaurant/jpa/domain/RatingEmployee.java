@@ -12,4 +12,16 @@ public class RatingEmployee extends Rating {
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "employee_id", nullable = false)
 	private Employee employee;
+
+	public RatingEmployee() {
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
 }

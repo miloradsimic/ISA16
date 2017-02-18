@@ -38,4 +38,48 @@ public class TablePosition {
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "position", cascade = CascadeType.ALL)
 	private RestaurantTable restaurantTable;
+
+	public TablePosition() {
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public int getRow() {
+		return row;
+	}
+
+	public void setRow(int row) {
+		this.row = row;
+	}
+
+	public int getCol() {
+		return col;
+	}
+
+	public void setCol(int col) {
+		this.col = col;
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+
+	public RestaurantTable getRestaurantTable() {
+		return restaurantTable;
+	}
+
+	public void setRestaurantTable(RestaurantTable restaurantTable) {
+		this.restaurantTable = restaurantTable;
+	}
+
 }

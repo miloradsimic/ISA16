@@ -42,7 +42,6 @@ public class Ingredient {
 	private Set<Supplier> suppliers;
 
 	public Ingredient() {
-
 	}
 
 	public long getId() {

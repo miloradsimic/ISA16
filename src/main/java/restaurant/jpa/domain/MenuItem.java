@@ -29,18 +29,24 @@ public abstract class MenuItem {
 
 	@Column(name = "price", nullable = false)
 	private Double price;
-	
+
 	@OneToMany
 	@Column(name = "rating_id")
 	private Set<Rating> ratings = new HashSet<>();
-	
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "restaurant_id", nullable = false)
 	private Restaurant restaurant;
 
-	
 	public MenuItem() {
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 
 	public long getId() {
@@ -74,6 +80,5 @@ public abstract class MenuItem {
 	public void setRatings(Set<Rating> ratings) {
 		this.ratings = ratings;
 	}
-	
 
 }

@@ -22,11 +22,21 @@ public class Reon {
 
 	@Column(name = "description", nullable = true)
 	private String description;
-	
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "restaurant_id", nullable = false)
 	private Restaurant restaurant;
+
+	public Reon() {
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
 
 	public long getId() {
 		return id;

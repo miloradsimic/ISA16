@@ -7,19 +7,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "system_manager")
 public class SystemManager {
 
-	//TODO: Mislim da ne treba ID zato sto postoji samo jedan system manager u ovom informacionom sistemu
+	// TODO: Mislim da ne treba ID zato sto postoji samo jedan system manager u
+	// ovom informacionom sistemu
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
 
 	@Column(nullable = false)
 	private String password;
-	
+
 	public SystemManager() {
 	}
 

@@ -22,7 +22,6 @@ public class DemandItem {
 	@ManyToOne
 	@JoinColumn(name = "ingredient_id", nullable = false)
 	private Ingredient ingredient;
-	
 
 	@Column(name = "demand_end", nullable = false)
 	private Date demandEnd;
@@ -35,8 +34,22 @@ public class DemandItem {
 	private int count;
 
 	public DemandItem() {
-		super();
-		// TODO Auto-generated constructor stub
+	}
+
+	public Date getDemandEnd() {
+		return demandEnd;
+	}
+
+	public void setDemandEnd(Date demandEnd) {
+		this.demandEnd = demandEnd;
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 
 	public long getId() {

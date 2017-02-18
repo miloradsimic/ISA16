@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
-import javax.persistence.ManyToOne;
 
 @Entity
 // koncept jedna tabela po konkretnoj klasi
@@ -27,8 +26,6 @@ public abstract class User {
 
 	@Column(nullable = false)
 	private String name;
-	
-
 
 	public User() {
 	}

@@ -33,7 +33,7 @@ public class Reservation {
 	 */
 	@Column(name = "reservation_end", nullable = false)
 	private Date reservationEnd;
-	
+
 	/**
 	 * Reservation start (begin) time + duration of reservation.
 	 */
@@ -64,5 +64,88 @@ public class Reservation {
 	 */
 	@Column(name = "canceled", nullable = false)
 	private boolean canceled;
+
+	public Reservation() {
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Guest getGuest() {
+		return guest;
+	}
+
+	public void setGuest(Guest guest) {
+		this.guest = guest;
+	}
+
+	public Date getReservationBegin() {
+		return reservationBegin;
+	}
+
+	public void setReservationBegin(Date reservationBegin) {
+		this.reservationBegin = reservationBegin;
+	}
+
+	public Date getReservationEnd() {
+		return reservationEnd;
+	}
+
+	public void setReservationEnd(Date reservationEnd) {
+		this.reservationEnd = reservationEnd;
+	}
+
+	public Date getReservationExpire() {
+		return reservationExpire;
+	}
+
+	public void setReservationExpire(Date reservationExpire) {
+		this.reservationExpire = reservationExpire;
+	}
+
+	public Set<Guest> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(Set<Guest> friends) {
+		this.friends = friends;
+	}
+
+	public RestaurantTable getRestaurantTable() {
+		return restaurantTable;
+	}
+
+	public void setRestaurantTable(RestaurantTable restaurantTable) {
+		this.restaurantTable = restaurantTable;
+	}
+
+	public Set<OrderItem> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Set<OrderItem> orders) {
+		this.orders = orders;
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+
+	public boolean isCanceled() {
+		return canceled;
+	}
+
+	public void setCanceled(boolean canceled) {
+		this.canceled = canceled;
+	}
 
 }

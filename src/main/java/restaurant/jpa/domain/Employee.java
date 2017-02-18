@@ -10,8 +10,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 
 @Entity
 // koncept jedna tabela po konkretnoj klasi
@@ -34,6 +32,14 @@ public abstract class Employee extends User {
 	private Set<Rating> ratings;
 
 	public Employee() {
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 
 	public double getHourlyPayRate() {
