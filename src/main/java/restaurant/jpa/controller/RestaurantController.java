@@ -7,18 +7,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import restaurant.jpa.service.DrinkService;
+import restaurant.jpa.service.ShiftService;
 
 @Controller
 public class RestaurantController {
 
-	@Autowired
-	private DrinkService drinkService;
 	
-	@GetMapping("/drink")
+	@Autowired
+	private ShiftService shiftService;
+	
+	
+	@GetMapping("/shift")
 	@ResponseBody
 	@Transactional(readOnly = true)
-	public String getDrinkName() {
-		return this.drinkService.getDrink("Pivo").getName();
+	public String getMeShift() {
+		return this.shiftService.findById(1).getName();
 	}
 	
 }
