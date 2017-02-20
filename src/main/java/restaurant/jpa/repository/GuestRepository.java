@@ -3,9 +3,8 @@ package restaurant.jpa.repository;
 import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 import org.springframework.data.repository.CrudRepository;
 
-import restaurant.jpa.domain.Shift;
+import restaurant.jpa.domain.Guest;
 
-public interface ShiftRepository extends CrudRepository<Shift, Long>, QueryDslPredicateExecutor<Shift>{
+public interface GuestRepository extends CrudRepository<Guest, Long>, QueryDslPredicateExecutor<Guest>{
 
-	
 }
