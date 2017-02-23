@@ -1,5 +1,10 @@
 package restaurant.jpa.repository;
 
-public interface OrderItemRepository {
+import org.springframework.data.querydsl.QueryDslPredicateExecutor;
+import org.springframework.data.repository.CrudRepository;
+
+import restaurant.jpa.domain.OrderItem;
+
+public interface OrderItemRepository extends CrudRepository<OrderItem, Long>, QueryDslPredicateExecutor<OrderItem> {
 
 }

@@ -1,5 +1,10 @@
 package restaurant.jpa.repository;
 
-public interface RestaurantTableRepository {
+import org.springframework.data.querydsl.QueryDslPredicateExecutor;
+import org.springframework.data.repository.CrudRepository;
+
+import restaurant.jpa.domain.RestaurantTable;
+
+public interface RestaurantTableRepository extends CrudRepository<RestaurantTable, Long>, QueryDslPredicateExecutor<RestaurantTable> {
 
 }

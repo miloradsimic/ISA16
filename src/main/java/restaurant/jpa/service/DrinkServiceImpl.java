@@ -20,7 +20,9 @@ public class DrinkServiceImpl implements DrinkService{
 	public Drink getDrink(String name) {
 		Assert.notNull(name, "Fill name field!");
 		
-		return this.drinkRepository.findByName(name);
+		Drink gonnaBeDeletedAnyway = new Drink();
+		
+		return gonnaBeDeletedAnyway;
 		
 	}
 
