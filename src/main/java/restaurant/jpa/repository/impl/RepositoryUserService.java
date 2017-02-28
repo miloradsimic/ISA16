@@ -52,6 +52,7 @@ public class RepositoryUserService implements UserService {
 	public Collection<UserLoginResponseDTO> findAll() {
 		Iterable<User> users  = repository.findAll();
 		
+		//Treba mapper metoda, ali ovo se ne koristi
 		Collection<UserLoginResponseDTO> retVal = new ArrayList<UserLoginResponseDTO>();
 		for (User user : users) {
 			UserLoginResponseDTO u= new UserLoginResponseDTO();
@@ -61,6 +62,7 @@ public class RepositoryUserService implements UserService {
 		}
 		return retVal;
 	}
+	
 
 	@Override
 	public UserLoginResponseDTO findByUsernameAndPassword(String username, String password) {

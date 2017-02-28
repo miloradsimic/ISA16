@@ -34,6 +34,28 @@ public class Restaurant {
 	@Column(name = "rating_id")
 	private Set<Rating> ratings;
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Column(nullable = false)
+	private String name;
+
+	@Column(nullable = false)
+	private String description;
+
 	@OneToMany
 	@Column(name = "menu_item_id")
 	private Set<MenuItem> menu;

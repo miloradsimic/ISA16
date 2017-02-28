@@ -7,6 +7,7 @@ import javax.annotation.Generated;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.PathMetadata;
 import com.querydsl.core.types.dsl.EntityPathBase;
+import com.querydsl.core.types.dsl.EnumPath;
 import com.querydsl.core.types.dsl.NumberPath;
 import com.querydsl.core.types.dsl.PathInits;
 import com.querydsl.core.types.dsl.SetPath;
@@ -48,6 +49,9 @@ public class QBartender extends EntityPathBase<Bartender> {
     // inherited
     public final QRestaurant restaurant;
 
+    //inherited
+    public final EnumPath<restaurant.jpa.domain.enums.Role> role;
+
     // inherited
     public final QShift shift;
 
@@ -77,6 +81,7 @@ public class QBartender extends EntityPathBase<Bartender> {
         this.password = _super.password;
         this.ratings = _super.ratings;
         this.restaurant = _super.restaurant;
+        this.role = _super.role;
         this.shift = _super.shift;
     }
 

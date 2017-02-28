@@ -10,6 +10,7 @@ import com.querydsl.core.types.dsl.EntityPathBase;
 import com.querydsl.core.types.dsl.NumberPath;
 import com.querydsl.core.types.dsl.PathInits;
 import com.querydsl.core.types.dsl.SetPath;
+import com.querydsl.core.types.dsl.StringPath;
 
 
 /**
@@ -24,11 +25,15 @@ public class QRestaurant extends EntityPathBase<Restaurant> {
 
     public final NumberPath<Integer> closeHour = createNumber("closeHour", Integer.class);
 
+    public final StringPath description = createString("description");
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final SetPath<Ingredient, QIngredient> ingredients = this.<Ingredient, QIngredient>createSet("ingredients", Ingredient.class, QIngredient.class, PathInits.DIRECT2);
 
     public final SetPath<MenuItem, QMenuItem> menu = this.<MenuItem, QMenuItem>createSet("menu", MenuItem.class, QMenuItem.class, PathInits.DIRECT2);
+
+    public final StringPath name = createString("name");
 
     public final NumberPath<Integer> openHour = createNumber("openHour", Integer.class);
 

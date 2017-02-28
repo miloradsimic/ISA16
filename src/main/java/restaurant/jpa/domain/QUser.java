@@ -7,6 +7,7 @@ import javax.annotation.Generated;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.PathMetadata;
 import com.querydsl.core.types.dsl.EntityPathBase;
+import com.querydsl.core.types.dsl.EnumPath;
 import com.querydsl.core.types.dsl.NumberPath;
 import com.querydsl.core.types.dsl.StringPath;
 
@@ -28,6 +29,8 @@ public class QUser extends EntityPathBase<User> {
     public final StringPath name = createString("name");
 
     public final StringPath password = createString("password");
+
+    public final EnumPath<restaurant.jpa.domain.enums.Role> role = createEnum("role", restaurant.jpa.domain.enums.Role.class);
 
     public QUser(String variable) {
         super(User.class, forVariable(variable));

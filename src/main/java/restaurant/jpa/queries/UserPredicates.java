@@ -2,7 +2,6 @@ package restaurant.jpa.queries;
 
 import com.querydsl.core.types.Predicate;
 
-import restaurant.jpa.domain.QShift;
 import restaurant.jpa.domain.QUser;
 
 public class UserPredicates {

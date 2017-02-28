@@ -7,6 +7,7 @@ import javax.annotation.Generated;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.PathMetadata;
 import com.querydsl.core.types.dsl.EntityPathBase;
+import com.querydsl.core.types.dsl.EnumPath;
 import com.querydsl.core.types.dsl.ListPath;
 import com.querydsl.core.types.dsl.NumberPath;
 import com.querydsl.core.types.dsl.PathInits;
@@ -40,6 +41,9 @@ public class QGuest extends EntityPathBase<Guest> {
 
     //inherited
     public final StringPath password = _super.password;
+
+    //inherited
+    public final EnumPath<restaurant.jpa.domain.enums.Role> role = _super.role;
 
     public QGuest(String variable) {
         super(Guest.class, forVariable(variable));

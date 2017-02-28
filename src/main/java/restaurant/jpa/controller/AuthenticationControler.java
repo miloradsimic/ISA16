@@ -15,7 +15,7 @@ import restaurant.jpa.service.UserService;
 
 @RestController
 @RequestMapping("/auth")
-public class LoginControler {
+public class AuthenticationControler {
 
 	@Autowired
     private UserRepository repository;

@@ -51,6 +51,9 @@ public class QCook extends EntityPathBase<Cook> {
     // inherited
     public final QRestaurant restaurant;
 
+    //inherited
+    public final EnumPath<restaurant.jpa.domain.enums.Role> role;
+
     // inherited
     public final QShift shift;
 
@@ -80,6 +83,7 @@ public class QCook extends EntityPathBase<Cook> {
         this.password = _super.password;
         this.ratings = _super.ratings;
         this.restaurant = _super.restaurant;
+        this.role = _super.role;
         this.shift = _super.shift;
     }
 

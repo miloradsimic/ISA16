@@ -3,8 +3,8 @@
 --SYSTEM MANAGER--
 insert into system_manager(id, email, name, password, role) values (1, 'a@a.a', "Admin", 'god', 0);
 --RESTAURANT--
-insert into restaurant(id, open_hour, close_hour) values (1, 7, 23);
-insert into restaurant(id, open_hour, close_hour) values (2, 8, 24);
+insert into restaurant(id, open_hour, close_hour, name, description) values (1, 7, 23, "Restaurant1", "Restaurant description 1");
+insert into restaurant(id, open_hour, close_hour, name, description) values (2, 8, 24, "Restaurant2", "Restaurant description 2");
 --RESTAURANT MANAGER--
 insert into restaurant_manager(id, restaurant_id, email, password, name, role) values (1, 1, 'm1@a.a', 'pass', 'Managers Name1', 2);
 insert into restaurant_manager(id, restaurant_id, email, password, name, role) values (2, 1, 'm2@a.a', 'pass', 'Managers Name2', 2);
