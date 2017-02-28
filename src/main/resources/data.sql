@@ -1,33 +1,33 @@
 --SQL inserts for database
 
 --SYSTEM MANAGER--
-insert into system_manager(id/*, email*/, password) values (1/*, 'admin@admin.com'*/, 'admin');
+insert into system_manager(id, email, name, password, role) values (1, 'a@a.a', "Admin", 'god', 0);
 --RESTAURANT--
 insert into restaurant(id, open_hour, close_hour) values (1, 7, 23);
 insert into restaurant(id, open_hour, close_hour) values (2, 8, 24);
 --RESTAURANT MANAGER--
-insert into restaurant_manager(id, restaurant_id, email, password, name) values (1, 1, 'manager1@manager.com', 'password', 'Managers Name1');
-insert into restaurant_manager(id, restaurant_id, email, password, name) values (2, 1, 'manager2@manager.com', 'password', 'Managers Name2');
+insert into restaurant_manager(id, restaurant_id, email, password, name, role) values (1, 1, 'm1@a.a', 'pass', 'Managers Name1', 2);
+insert into restaurant_manager(id, restaurant_id, email, password, name, role) values (2, 1, 'm2@a.a', 'pass', 'Managers Name2', 2);
 --SHIFT--
 insert into shift(id, name, restaurant_id, begin_hour, end_hour) values (1, 'Morning shift', 1, 7, 15);
 insert into shift(id, name, restaurant_id, begin_hour, end_hour) values (2, 'Afternoon shift', 1, 15, 23);
 --COOK--
-insert into cook(id, email, name, password, hourly_pay_rate, restaurant_id, shift_id, food_type) values (3, 'cook1@cook.com', 'Cook1', 'password', 7.00, 1, 1, 0);
-insert into cook(id, email, name, password, hourly_pay_rate, restaurant_id, shift_id, food_type) values (4, 'cook2@cook.com', 'Cook2', 'password', 6.50, 1, 1, 1);
+insert into cook(id, email, name, password, hourly_pay_rate, restaurant_id, shift_id, food_type, role) values (3, 'c1@a.a', 'Cook1', 'pass', 7.00, 1, 1, 0, 3);
+insert into cook(id, email, name, password, hourly_pay_rate, restaurant_id, shift_id, food_type, role) values (4, 'c2@a.a', 'Cook2', 'pass', 6.50, 1, 1, 1, 3);
 --BARTENDER--
-insert into bartender(id, email, name, password, hourly_pay_rate, restaurant_id, shift_id) values (5, 'bartender1@bartender.com', 'Bartender1', 'password', 5.00, 1, 1);
-insert into bartender(id, email, name, password, hourly_pay_rate, restaurant_id, shift_id) values (6, 'bartender2@bartender.com', 'Bartender2', 'password', 5.00, 1, 1);
+insert into bartender(id, email, name, password, hourly_pay_rate, restaurant_id, shift_id, role) values (5, 'b1@a.a', 'Bartender1', 'pass', 5.00, 1, 1, 4);
+insert into bartender(id, email, name, password, hourly_pay_rate, restaurant_id, shift_id, role) values (6, 'b2@a.a', 'Bartender2', 'pass', 5.00, 1, 1, 4);
 --WAITER--
-insert into waiter(id, email, name, password, hourly_pay_rate, restaurant_id, shift_id) values (7, 'waiter1@waiter.com', 'Waiter1', 'password', 8.00, 1, 1);
-insert into waiter(id, email, name, password, hourly_pay_rate, restaurant_id, shift_id) values (8, 'waiter2@waiter.com', 'Waiter2', 'password', 8.00, 1, 2);
+insert into waiter(id, email, name, password, hourly_pay_rate, restaurant_id, shift_id, role) values (7, 'w1@a.a', 'Waiter1', 'pass', 8.00, 1, 1, 5);
+insert into waiter(id, email, name, password, hourly_pay_rate, restaurant_id, shift_id, role) values (8, 'w2@a.a', 'Waiter2', 'pass', 8.00, 1, 2, 5);
 --SUPPLIER--
-insert into supplier(id, email, name, password, restaurant_id) values (9, 'supplier1@supplier.com', 'Supplier1', 'password', 1);
-insert into supplier(id, email, name, password, restaurant_id) values (10, 'supplier2@supplier.com', 'Supplier2', 'password', 1);
+insert into supplier(id, email, name, password, restaurant_id, role) values (9, 's1@a.a', 'Supplier1', 'pass', 1, 6);
+insert into supplier(id, email, name, password, restaurant_id, role) values (10, 's2@a.a', 'Supplier2', 'pass', 1, 6);
 --GUEST--
-insert into tbl_guest(id, email, name, password) values (11, 'guest1@guest.com', 'Guest1', 'password');
-insert into tbl_guest(id, email, name, password) values (12, 'guest2@guest.com', 'Guest2', 'password');
-insert into tbl_guest(id, email, name, password) values (13, 'guest3@guest.com', 'Guest3', 'password');
-insert into tbl_guest(id, email, name, password) values (14, 'guest4@guest.com', 'Guest4', 'password');
+insert into tbl_guest(id, email, name, password, role) values (11, 'g1@a.a', 'Guest1', 'pass', 1);
+insert into tbl_guest(id, email, name, password, role) values (12, 'g2@a.a', 'Guest2', 'pass', 1);
+insert into tbl_guest(id, email, name, password, role) values (13, 'g3@a.a', 'Guest3', 'pass', 1);
+insert into tbl_guest(id, email, name, password, role) values (14, 'g4@a.a', 'Guest4', 'pass', 1);
 --DRINK--
 insert into tbl_drink(id, name, price, restaurant_id) values (1, 'Drink1', 10.00, 1);
 insert into tbl_drink(id, name, price, restaurant_id) values (2, 'Drink2', 20.00, 1);

@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 
+import restaurant.jpa.domain.enums.Role;
+
+
 @Entity
 // koncept jedna tabela po konkretnoj klasi
 @Inheritance(strategy = TABLE_PER_CLASS)
@@ -26,6 +29,18 @@ public abstract class User {
 
 	@Column(nullable = false)
 	private String name;
+
+	@Column(name = "role", nullable = false)
+	protected Role role;
+	
+	
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
 
 	public User() {
 	}

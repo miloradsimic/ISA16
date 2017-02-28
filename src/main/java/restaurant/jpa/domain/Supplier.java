@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import restaurant.jpa.domain.enums.Role;
+
 @Entity
 @Table(name = "supplier")
 public class Supplier extends User {
@@ -28,6 +30,7 @@ public class Supplier extends User {
 	private Restaurant restaurant;
 
 	public Supplier() {
+		role = Role.SUPPLIER;
 	}
 
 	public Restaurant getRestaurant() {

@@ -5,6 +5,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import restaurant.jpa.domain.enums.Role;
+
 @Entity
 @Table(name = "restaurant_manager")
 public class RestaurantManager extends User {
@@ -14,6 +16,7 @@ public class RestaurantManager extends User {
 	private Restaurant restaurant;
 
 	public RestaurantManager() {
+		role = Role.MANAGER;
 	}
 
 	public Restaurant getRestaurant() {

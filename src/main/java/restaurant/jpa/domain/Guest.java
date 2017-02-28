@@ -8,6 +8,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import restaurant.jpa.domain.enums.Role;
+
 @Entity
 @Table(name = "tbl_guest")
 public class Guest extends User {
@@ -21,6 +23,7 @@ public class Guest extends User {
 	private List<User> friendOf;
 
 	public Guest() {
+		role = Role.GUEST;
 	}
 
 	public List<User> getFriends() {

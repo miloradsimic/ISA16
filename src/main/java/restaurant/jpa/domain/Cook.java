@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import restaurant.jpa.domain.enums.FoodType;
+import restaurant.jpa.domain.enums.Role;
 
 @Entity
 @Table(name = "cook")
@@ -16,6 +17,7 @@ public class Cook extends Employee {
 	private FoodType foodType;
 
 	public Cook() {
+		role = Role.COOK;
 	}
 
 	@Enumerated(EnumType.ORDINAL)
