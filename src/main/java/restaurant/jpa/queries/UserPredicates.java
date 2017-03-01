@@ -18,4 +18,8 @@ public class UserPredicates {
 		return QUser.user.password.eq(password);
 
 	}
+	public static Predicate has(String password) {
+		return QUser.user.password.eq(password);
+
+	}
 }

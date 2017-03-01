@@ -5,22 +5,28 @@ import java.util.Collection;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 
 import restaurant.jpa.dto.RestaurantDTO;
-import restaurant.jpa.dto.UserLoginResponseDTO;
+import restaurant.jpa.dto.UserLoginDTO;
+import restaurant.jpa.dto.FriendResponseDTO;
+import restaurant.jpa.dto.GuestProfileResponseDTO;
 import restaurant.jpa.dto.mapper.RoleMapper;
 import restaurant.jpa.repository.UserRepository;
 import restaurant.jpa.service.RestaurantService;
 import restaurant.jpa.service.ShiftService;
 import restaurant.jpa.service.UserService;
+import restaurant.jpa.AppUtils;
 import restaurant.jpa.domain.enums.Role;
 
 @RestController
-public class RestaurantController {
+@RequestMapping("/guest")
+public class GuestController {
 
 	
 	@Autowired
@@ -48,15 +54,36 @@ public class RestaurantController {
 	
 	
 	@RequestMapping(path="/users", method = RequestMethod.GET)
-	Collection<UserLoginResponseDTO> readUsers() {
+	Collection<GuestProfileResponseDTO> readUsers() {
 		
 		return this.userService.findAll();
 	}
 	
 
 	@RequestMapping(path="/restaurants", method = RequestMethod.GET)
-	Collection<RestaurantDTO> getRestaurants(HttpSession session) {
+	Collection<RestaurantDTO> getRestaurants() {
 		return this.restaurantService.findAll();
+	}
+	
+
+	@RequestMapping(path="/profile", method = RequestMethod.GET)
+	GuestProfileResponseDTO getGuestProfile(@RequestHeader("Authorization") String encoded) {
+		
+
+		String username = AppUtils.getUsernameFromBasic(encoded);
+		String password = AppUtils.getPasswordFromBasic(encoded);
+
+		return this.userService.findByUsernameAndPassword(username, password);
+	}
+	
+	@RequestMapping(path="/friends", method = RequestMethod.GET)
+	Collection<FriendResponseDTO> getGuestFriends(@RequestHeader("Authorization") String encoded) {
+		
+
+		String username = AppUtils.getUsernameFromBasic(encoded);
+		String password = AppUtils.getPasswordFromBasic(encoded);
+
+		return this.userService.findAllFriends(username, password);
 	}
 	
 	

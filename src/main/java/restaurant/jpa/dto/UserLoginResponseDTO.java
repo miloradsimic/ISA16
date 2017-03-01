@@ -2,10 +2,9 @@ package restaurant.jpa.dto;
 
 public class UserLoginResponseDTO {
 
-    public String email;
-    public String name;
-    public String role;
-    
-    public UserLoginResponseDTO(){
-    }
+	public String role;
+
+	public UserLoginResponseDTO(String role) {
+		this.role = role;
+	}
 }

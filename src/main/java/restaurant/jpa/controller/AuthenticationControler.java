@@ -3,12 +3,12 @@ package restaurant.jpa.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import restaurant.jpa.dto.UserLoginDTO;
+import restaurant.jpa.AppUtils;
 import restaurant.jpa.dto.UserLoginResponseDTO;
 import restaurant.jpa.repository.UserRepository;
 import restaurant.jpa.service.UserService;
@@ -24,12 +24,12 @@ public class AuthenticationControler {
 	private UserService service;
 	
 	@RequestMapping(path="/login", method = RequestMethod.POST)
-	public UserLoginResponseDTO tryToLogin(@RequestBody UserLoginDTO userReq, HttpSession httpSession) {
+	public UserLoginResponseDTO tryToLogin(@RequestHeader("Authorization") String encoded) {
 		
-		UserLoginResponseDTO userResp = this.service.findByUsernameAndPassword(userReq.username, userReq.password);
-		httpSession.setAttribute("user", userResp);
-		
-		return userResp;
+		String username = AppUtils.getUsernameFromBasic(encoded);
+		String password = AppUtils.getPasswordFromBasic(encoded);
+
+		return this.service.findByUsernameAndPasswordLogin(username, password);
 	}
 	
 

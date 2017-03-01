@@ -29,9 +29,9 @@ public class QGuest extends EntityPathBase<Guest> {
     //inherited
     public final StringPath email = _super.email;
 
-    public final ListPath<User, QUser> friendOf = this.<User, QUser>createList("friendOf", User.class, QUser.class, PathInits.DIRECT2);
+    public final ListPath<Guest, QGuest> friendOf = this.<Guest, QGuest>createList("friendOf", Guest.class, QGuest.class, PathInits.DIRECT2);
 
-    public final ListPath<User, QUser> friends = this.<User, QUser>createList("friends", User.class, QUser.class, PathInits.DIRECT2);
+    public final ListPath<Guest, QGuest> friends = this.<Guest, QGuest>createList("friends", Guest.class, QGuest.class, PathInits.DIRECT2);
 
     //inherited
     public final NumberPath<Long> id = _super.id;
