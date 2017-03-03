@@ -10,6 +10,7 @@ import restaurant.jpa.domain.SystemManager;
 import restaurant.jpa.domain.User;
 import restaurant.jpa.dto.request.UserDTO;
 import restaurant.jpa.dto.response.FriendResponseDTO;
+import restaurant.jpa.dto.response.FullAdminResponseDTO;
 import restaurant.jpa.dto.response.UserProfileResponseDTO;
 
 public class UserMapper {
@@ -36,7 +37,7 @@ public class UserMapper {
 		return dtos;
 	}
 	
-	public static SystemManager mapDtoIntoEntityAdmin(UserDTO dto){
+	public static SystemManager mapDtoIntoEntityAdminNew(UserDTO dto){
 		SystemManager entity = new SystemManager();
 		
 		entity.setEmail(dto.email);
@@ -46,15 +47,39 @@ public class UserMapper {
 		return entity;
 		
 	}
+	
+	public static SystemManager mapDtoIntoEntityAdmin(FullAdminResponseDTO dto){
+		SystemManager entity = new SystemManager();
+		
+		entity.setEmail(dto.email);
+		entity.setName(dto.name);
+		entity.setPassword(dto.password);
+		entity.setId(dto.id);
+		
+		return entity;
+		
+	}
 
-	public static Collection<UserProfileResponseDTO> mapEntityIntoDTO(Iterable<User> entity) {
-		Collection<UserProfileResponseDTO> dtos = new ArrayList<>();
-		UserProfileResponseDTO dto = new UserProfileResponseDTO();
+	public static Collection<FullAdminResponseDTO> mapEntityIntoDTO(Iterable<User> entity) {
+		Collection<FullAdminResponseDTO> dtos = new ArrayList<>();
+		FullAdminResponseDTO dto = new FullAdminResponseDTO();
 
 		for (User g : entity) {
-			dto = mapEntityIntoDTO(g);
+			dto = mapEntityIntoAdminDTO(g);
 			dtos.add(dto);
 		}
 		return dtos;
 	}
+	
+	public static FullAdminResponseDTO mapEntityIntoAdminDTO(User entity) {
+		FullAdminResponseDTO dto = new FullAdminResponseDTO();
+
+		dto.email = entity.getEmail();
+		dto.name = (entity.getName());
+		dto.password = (entity.getPassword());
+		dto.id = (entity.getId());
+
+		return dto;
+	}
+	
 }

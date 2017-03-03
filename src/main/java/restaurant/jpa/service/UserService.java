@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import restaurant.jpa.dto.request.UserDTO;
 import restaurant.jpa.dto.response.FriendResponseDTO;
+import restaurant.jpa.dto.response.FullAdminResponseDTO;
 import restaurant.jpa.dto.response.UserProfileResponseDTO;
 import restaurant.jpa.dto.response.UserLoginResponseDTO;
 
@@ -17,10 +18,12 @@ public interface UserService {
 
 	Collection<FriendResponseDTO> findAllFriends(String username, String password);
 
-	Collection<UserProfileResponseDTO> findAllAdmins(String username, String password);
+	Collection<FullAdminResponseDTO> findAllAdmins(String username, String password);
 	
 	Boolean deleteAdmin(String username, String password, long id);
 
 	Boolean createAdmin(String username, String password, UserDTO dto);
+
+	String updateAdmin(String username, String password, FullAdminResponseDTO dto);
 
 }

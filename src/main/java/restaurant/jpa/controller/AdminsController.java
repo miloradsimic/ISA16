@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import restaurant.jpa.AppUtils;
 import restaurant.jpa.dto.request.UserDTO;
 import restaurant.jpa.dto.request.IdDTO;
+import restaurant.jpa.dto.response.FullAdminResponseDTO;
 import restaurant.jpa.dto.response.UserProfileResponseDTO;
 import restaurant.jpa.service.UserService;
 
@@ -27,7 +28,7 @@ public class AdminsController {
 	
 	
 	@RequestMapping(path = "/admins", method = RequestMethod.GET)
-	Collection<UserProfileResponseDTO> getAdmins(@RequestHeader("Authorization") String encoded) {
+	Collection<FullAdminResponseDTO> getAdmins(@RequestHeader("Authorization") String encoded) {
 		
 		String username = AppUtils.getUsernameFromBasic(encoded);
 		String password = AppUtils.getPasswordFromBasic(encoded);
@@ -51,6 +52,17 @@ public class AdminsController {
 		String password = AppUtils.getPasswordFromBasic(encoded);
 		
 		return this.userService.createAdmin(username, password, dto);
+	}
+	
+	@RequestMapping(path = "/update", method = RequestMethod.POST)
+	String updateAdmin(@RequestHeader("Authorization") String encoded, @RequestBody FullAdminResponseDTO dto) {
+		
+		String username = AppUtils.getUsernameFromBasic(encoded);
+		String password = AppUtils.getPasswordFromBasic(encoded);
+		
+		String response = this.userService.updateAdmin(username, password, dto);
+		System.out.println("RESPONSE: Admin update -> " + response);
+		return response;
 	}
 	
 }

@@ -18,6 +18,7 @@ import restaurant.jpa.dto.mapper.UserLoginMapper;
 import restaurant.jpa.dto.mapper.UserMapper;
 import restaurant.jpa.dto.request.UserDTO;
 import restaurant.jpa.dto.response.FriendResponseDTO;
+import restaurant.jpa.dto.response.FullAdminResponseDTO;
 import restaurant.jpa.dto.response.UserProfileResponseDTO;
 import restaurant.jpa.dto.response.UserLoginResponseDTO;
 import restaurant.jpa.queries.UserPredicates;
@@ -87,7 +88,7 @@ public class RepositoryUserService implements UserService {
 	}
 	
 	@Override
-	public Collection<UserProfileResponseDTO> findAllAdmins(String username, String password) {
+	public Collection<FullAdminResponseDTO> findAllAdmins(String username, String password) {
 
 		
 		Predicate pred1 = UserPredicates.hasUsernameAndPassword(username, password);
@@ -155,7 +156,7 @@ public class RepositoryUserService implements UserService {
 			return false; //user already exists with that email
 		}
 		
-		SystemManager newUser = UserMapper.mapDtoIntoEntityAdmin(dto);
+		SystemManager newUser = UserMapper.mapDtoIntoEntityAdminNew(dto);
 		
 		
 		SystemManager admin = adminRepository.save(newUser);
@@ -165,11 +166,40 @@ public class RepositoryUserService implements UserService {
 		}
 		return true;
 	}
-	
-	
-	
-	
-	
+
+	@Override
+	public String updateAdmin(String username, String password, FullAdminResponseDTO dto) {
+		
+		Predicate pred1 = UserPredicates.hasUsernameAndPassword(username, password);
+		User user = userRepository.findOne(pred1);
+		
+
+		if(user == null){
+			return AppConstants.USER_NOT_LOGGED_IN;
+		}
+		
+		if(!user.getRole().equals(Role.SUPERUSER)){
+			return AppConstants.USER_INSUFFICIENT_PERMISSIONS;
+		}
+		
+//		Predicate pred = UserPredicates.hasEmail(dto.email);
+		User existingUser = userRepository.findOne(dto.id);
+		
+		if(existingUser == null){
+			return AppConstants.USER_NOT_EXIST;
+		}
+		
+		SystemManager newUser = UserMapper.mapDtoIntoEntityAdmin(dto);
+		newUser.setId(existingUser.getId());
+		
+		
+		SystemManager admin = adminRepository.save(newUser);
+		
+		if(admin == null) {
+			return AppConstants.USER_ERROR;
+		}
+		return AppConstants.USER_REGISTERED_SUCCESFUL;
+	}
 	
 	
 	
