@@ -8,17 +8,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.TableGenerator;
 
 import restaurant.jpa.domain.enums.Role;
-
 
 @Entity
 // koncept jedna tabela po konkretnoj klasi
 @Inheritance(strategy = TABLE_PER_CLASS)
 public abstract class User {
 
+	@TableGenerator(name = "generator", initialValue = 10000)
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "generator")
+	// @Id
+	// @GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
 
 	@Column(nullable = false)
@@ -32,8 +35,7 @@ public abstract class User {
 
 	@Column(name = "role", nullable = false)
 	protected Role role;
-	
-	
+
 	public Role getRole() {
 		return role;
 	}

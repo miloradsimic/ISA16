@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import restaurant.jpa.domain.Restaurant;
-import restaurant.jpa.dto.RestaurantDTO;
+import restaurant.jpa.dto.response.RestaurantResponseDTO;
 
 public final class RestaurantMapper {
 	
-	public static RestaurantDTO mapEntityIntoDTO(Restaurant entity) {
+	public static RestaurantResponseDTO mapEntityIntoDTO(Restaurant entity) {
 		
-		RestaurantDTO dto = new RestaurantDTO();
+		RestaurantResponseDTO dto = new RestaurantResponseDTO();
 		
 		dto.id = entity.getId();
 		dto.name = entity.getName();
@@ -19,9 +19,9 @@ public final class RestaurantMapper {
 		return dto;
 	}
 	
-	public static Collection<RestaurantDTO> mapEntityIntoDTO(Iterable<Restaurant> entity) {
+	public static Collection<RestaurantResponseDTO> mapEntityIntoDTO(Iterable<Restaurant> entity) {
 		
-		Collection<RestaurantDTO> collectionDTO = new ArrayList<>();
+		Collection<RestaurantResponseDTO> collectionDTO = new ArrayList<>();
 		
 		for (Restaurant item : entity) {
 			collectionDTO.add(mapEntityIntoDTO(item));

@@ -1,6 +1,6 @@
-package restaurant.jpa.dto;
+package restaurant.jpa.dto.response;
 
-public class RestaurantDTO {
+public class RestaurantResponseDTO {
 
 	
 	public long id;

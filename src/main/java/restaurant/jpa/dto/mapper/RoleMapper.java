@@ -28,6 +28,9 @@ public class RoleMapper {
 		case "waiter": {
 			return Role.WAITER;
 		}
+		case "superuser": {
+			return Role.SUPERUSER;
+		}
 		default: return null;
 		}
 	}
@@ -50,6 +53,8 @@ public class RoleMapper {
 			return "supplier";
 		case WAITER:
 			return  "waiter";
+		case SUPERUSER:
+			return  "superuser";
 		default:
 			System.out.println("/n/nError in UserMapper class");
 			System.out.println("Role not supported! Role: " + role + "/n/n");

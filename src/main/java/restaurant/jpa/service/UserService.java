@@ -2,21 +2,25 @@ package restaurant.jpa.service;
 
 import java.util.Collection;
 
-import restaurant.jpa.dto.UserLoginDTO;
-import restaurant.jpa.dto.UserLoginResponseDTO;
-import restaurant.jpa.dto.FriendResponseDTO;
-import restaurant.jpa.dto.GuestProfileResponseDTO;
+import restaurant.jpa.dto.request.UserDTO;
+import restaurant.jpa.dto.response.FriendResponseDTO;
+import restaurant.jpa.dto.response.UserProfileResponseDTO;
+import restaurant.jpa.dto.response.UserLoginResponseDTO;
 
 public interface UserService {
-	
-	UserLoginDTO findByUsername(String username, String password);
-	
-	Collection<GuestProfileResponseDTO> findAll();
-	
-	GuestProfileResponseDTO findByUsernameAndPassword(String username, String password);
+
+	Collection<UserProfileResponseDTO> findAll();
+
+	UserProfileResponseDTO findByUsernameAndPassword(String username, String password);
+
 	UserLoginResponseDTO findByUsernameAndPasswordLogin(String username, String password);
 
-	
 	Collection<FriendResponseDTO> findAllFriends(String username, String password);
+
+	Collection<UserProfileResponseDTO> findAllAdmins(String username, String password);
+	
+	Boolean deleteAdmin(String username, String password, long id);
+
+	Boolean createAdmin(String username, String password, UserDTO dto);
 
 }

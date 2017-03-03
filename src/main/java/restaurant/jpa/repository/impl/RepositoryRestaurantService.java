@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.querydsl.core.types.Predicate;
 
-import restaurant.jpa.dto.RestaurantDTO;
 import restaurant.jpa.dto.mapper.RestaurantMapper;
 import restaurant.jpa.dto.mapper.UserMapper;
+import restaurant.jpa.dto.response.RestaurantResponseDTO;
 import restaurant.jpa.queries.UserPredicates;
 import restaurant.jpa.repository.RestaurantRepository;
 import restaurant.jpa.service.RestaurantService;
@@ -28,7 +28,7 @@ public class RepositoryRestaurantService implements RestaurantService {
 	
 
 	@Override
-	public Collection<RestaurantDTO> findAll() {
+	public Collection<RestaurantResponseDTO> findAll() {
 
 		return RestaurantMapper.mapEntityIntoDTO(restaurantRepository.findAll());
 	}

@@ -6,8 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.querydsl.core.types.Predicate;
 
-import restaurant.jpa.dto.ShiftDTO;
 import restaurant.jpa.dto.mapper.ShiftMapper;
+import restaurant.jpa.dto.response.ShiftResponseDTO;
 import restaurant.jpa.queries.ShiftPredicate;
 import restaurant.jpa.repository.ShiftRepository;
 import restaurant.jpa.service.ShiftService;
@@ -25,7 +25,7 @@ public class RepositoryShiftService implements ShiftService {
 
 	@Transactional
 	@Override
-	public ShiftDTO findById(long id) {
+	public ShiftResponseDTO findById(long id) {
 
 		Predicate pred = ShiftPredicate.hasId(id);
 		

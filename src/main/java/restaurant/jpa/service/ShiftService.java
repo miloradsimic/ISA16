@@ -1,9 +1,9 @@
 package restaurant.jpa.service;
 
-import restaurant.jpa.dto.ShiftDTO;
+import restaurant.jpa.dto.response.ShiftResponseDTO;
 
 public interface ShiftService {
 
-	ShiftDTO findById(long id);
+	ShiftResponseDTO findById(long id);
 	
 }

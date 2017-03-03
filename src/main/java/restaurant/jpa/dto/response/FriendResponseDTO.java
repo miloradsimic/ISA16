@@ -1,4 +1,4 @@
-package restaurant.jpa.dto;
+package restaurant.jpa.dto.response;
 
 public class FriendResponseDTO {
 

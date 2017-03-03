@@ -1,7 +1,8 @@
 --SQL inserts for database
 
 --SYSTEM MANAGER--
-insert into system_manager(id, email, name, password, role) values (1, 'a@a.a', "Admin", 'god', 0);
+insert into system_manager(id, email, name, password, role) values (99, 'a1@a.a', "Superuser", 'god', 7);
+insert into system_manager(id, email, name, password, role) values (15, 'a2@a.a', "Admin", 'god', 0);
 --RESTAURANT--
 insert into restaurant(id, open_hour, close_hour, name, description) values (1, 7, 23, "Restaurant1", "Restaurant description 1");
 insert into restaurant(id, open_hour, close_hour, name, description) values (2, 8, 24, "Restaurant2", "Restaurant description 2");
